@@ -6,6 +6,11 @@ pipeline {
         maven 'Maven 3.9.6'
     }
 
+    // Ignora estágios seguintes se um estágio ficar instável
+    options {
+        skipStagesAfterUnstable()
+    }
+
     stages {
         stage('Build') { 
             steps {
