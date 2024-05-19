@@ -13,4 +13,21 @@ pipeline {
             }
         }
     }
+
+    stage('Test') {
+
+            //run the unit test
+            steps {
+                sh 'mvn test'
+            }
+
+            //JUnit XML report, which is saved to the target/surefire-reports directory
+            // within the /var/jenkins_home/workspace/simple-java-maven-app directory in the Jenkins container.
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
+        }
+
 }
