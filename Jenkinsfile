@@ -11,6 +11,11 @@ pipeline {
         skipStagesAfterUnstable()
     }
 
+    parameters {
+        booleanParam(name: 'RUN_TESTS', defaultValue: true, description: 'Executar testes unitários?')
+    }
+
+
     stages {
         stage('Build') { 
             steps {
@@ -19,6 +24,10 @@ pipeline {
         }
 
     stage('Test') {
+
+            when {
+                expression { return params.RUN_TESTS }
+            }
 
             //run the unit test
             steps {
