@@ -1,10 +1,10 @@
 pipeline {
     agent any
 
-    tools {
+    //tools {
         // Certifique-se de que o nome corresponde ao configurado no Jenkins
-        maven 'Maven 3.9.6'
-    }
+       // maven 'Maven 3.9.6'
+    //}
 
     // Ignora estágios seguintes se um estágio ficar instável
     options {
@@ -44,11 +44,11 @@ pipeline {
         }
 
 
-    stage('Deliver') {
-            steps {
-                sh './jenkins/scripts/deliver.sh'
-            }
-        }
+   // stage('Deliver') {
+           // steps {
+               // sh './jenkins/scripts/deliver.sh'
+            //}
+        //}
 
     }    
 
